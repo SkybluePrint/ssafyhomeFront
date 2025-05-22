@@ -30,7 +30,9 @@ export async function login(username, password) {
 // 3) 초기화용: 페이지 로드 시 자동으로 호출
 export async function refreshAccessToken() {
   try {
+    console.log("리프레쉬 토큰 함수 실행")
     const res = await api.post("/refresh");
+   
     const token = res.headers["authorization"]?.split(" ")[1];
     if (token) {
       setAuthHeader(token);

@@ -33,6 +33,7 @@ export default {
       try {
         await signup(nickname.value, username.value, userEmail.value, password.value, phoneNumber.value);
         // signup이 성공했을 때만 실행
+        alert('회원가입 성공!');
         router.push('/login');
       } catch (e) {
         alert('회원가입 실패');
@@ -49,7 +50,7 @@ export default {
   <div class="login-page">
     <div class="login-container">
       <div class="login-card">
-        <form class="login-form" @submit="handleSubmit">
+        <form class="login-form" @submit.prevent="handleSubmit">
           <h1 class="login-title">회원가입</h1>
           <p class="login-subtitle">정보를 입력해주세요</p>
 

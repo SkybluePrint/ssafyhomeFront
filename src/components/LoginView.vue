@@ -11,7 +11,9 @@ const router = useRouter()
 const handleSubmit = async (event) => {
   event.preventDefault()
   try {
+    event.preventDefault();
     await login(username.value, password.value)
+    alert('로그인 성공')
     router.push('/')
   } catch (e) {
     console.error('로그인 에러:', e)
@@ -24,7 +26,7 @@ const handleSubmit = async (event) => {
   <div class="login-page">
     <div class="login-container">
       <div class="login-card">
-        <form class="login-form" @submit="handleSubmit">
+        <form class="login-form" @submit.prevent="handleSubmit">
           <h1 class="login-title">로그인</h1>
           <p class="login-subtitle">계정 정보를 입력하세요</p>
 
